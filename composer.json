@@ -18,6 +18,8 @@
         "cashuanony/phpanonymous": "dev-master",
         "chehivskiy/i18n-arabic": "^1.0",
         "cviebrock/eloquent-sluggable": "*",
+        "deployer/deployer": "^7.3",
+        "deployer/recipes": "^6.2",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
