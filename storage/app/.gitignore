@@ -1,0 +1,4 @@
+*
+!public/
+!purifier/
+!.gitignore
