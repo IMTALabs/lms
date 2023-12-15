@@ -1,7 +1,7 @@
 name: PULL REQUEST WORKFLOW
 
 on:
-  push:
+  pull_request:
     branches:
       - testing
 
