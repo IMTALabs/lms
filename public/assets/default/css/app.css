@@ -19589,3 +19589,14 @@ p {
 .custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {
   opacity: 0.6 !important;
 }
+
+.basement-private-messages__message-value pre {
+    background-color: #f7fafd;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 1.29;
+    color: #171347 !important;
+    margin: 8px 0;
+}
