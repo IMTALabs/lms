@@ -4,84 +4,84 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Home 
+    | Trang chủ
     |--------------------------------------------------------------------------
     */
 
-    'home_title' => 'Home',
+    'home_title' => 'Trang chủ',
 
-    'slider_heading' => 'Enjoy online learning',
-    'slider_hint' => "Online education is one of the best choices to grow \n learn from the best teachers around the world",
+    'slider_heading' => 'Trải nghiệm học trực tuyến',
+    'slider_hint' => "Giáo dục trực tuyến là một trong những lựa chọn tốt nhất để phát triển \n học từ những giáo viên xuất sắc trên khắp thế giới",
 
-    'slider_search_placeholder' => 'Search courses, instructors and organizations...',
-    'find' => 'Search',
+    'slider_search_placeholder' => 'Tìm kiếm khóa học, giáo viên và tổ chức...',
+    'find' => 'Tìm kiếm',
 
-    'view_all' => 'View All',
+    'view_all' => 'Xem Tất cả',
     // stats
-    'teachers' => 'Instructors',
-    'skillful_teachers' => 'Skillful Instructors',
-    'skillful_teachers_hint' => 'Start learning from experienced instructors.',
+    'teachers' => 'Giáo viên',
+    'skillful_teachers' => 'Giáo viên tài năng',
+    'skillful_teachers_hint' => 'Bắt đầu học từ những giáo viên có kinh nghiệm.',
 
-    'live_classes' => 'Live Classes',
-    'live_classes_hint' => 'Improve your skills using live knowledge flow.',
+    'live_classes' => 'Buổi học trực tiếp',
+    'live_classes_hint' => 'Cải thiện kỹ năng của bạn thông qua luồng kiến thức trực tuyến.',
 
-    'happy_students' => 'Happy Students',
-    'happy_students_hint' => 'Enrolled in our courses and improved their skills.',
+    'happy_students' => 'Học viên hạnh phúc',
+    'happy_students_hint' => 'Đã đăng ký học và cải thiện kỹ năng của họ.',
 
     'offline_courses' => 'Video Courses',
-    'offline_courses_hint' => 'Learn without any geographical & time limitations.',
+    'offline_courses_hint' => 'Học mà không bị ràng buộc bởi địa lý và thời gian.',
 
-    'hours' => 'Hours',
+    'hours' => 'Giờ',
 
-    'featured_classes' => 'Featured Courses',
-    'featured_webinars' => 'Featured Courses',
-    'featured_classes_hint' => '#Browse featured courses and become skillful',
+    'featured_classes' => 'Khóa học nổi bật',
+    'featured_webinars' => 'Khóa học nổi bật',
+    'featured_classes_hint' => '#Duyệt qua các khóa học nổi bật và trở nên tài năng',
 
-    'latest_classes' => 'Newest Courses',
-    'latest_webinars' => 'Newest Courses',
-    'latest_webinars_hint' => '#Recently published courses',
+    'latest_classes' => 'Các khóa học mới nhất',
+    'latest_webinars' => 'Các khóa học mới nhất',
+    'latest_webinars_hint' => '#Các khóa học được xuất bản gần đây',
 
-    'featured' => 'Featured',
-    'downloadable' => 'Downloadable',
-    'download' => 'Download',
-    'downloads' => 'Downloads',
+    'featured' => 'Nổi bật',
+    'downloadable' => 'Có thể tải về',
+    'download' => 'Tải về',
+    'downloads' => 'Lượt tải về',
 
-    'trending_categories' => 'Trending Categories',
-    'trending_categories_hint' => '#Browse trending & popular learning topics',
+    'trending_categories' => 'Danh mục đang hot',
+    'trending_categories_hint' => '#Khám phá các chủ đề học phổ biến và đang hot',
 
-    'best_sellers' => 'Bestselling Courses',
-    'best_sellers_hint' => '#Learn from bestselling courses',
+    'best_sellers' => 'Các khóa học bán chạy nhất',
+    'best_sellers_hint' => '#Học từ các khóa học bán chạy nhất',
 
-    'best_rates' => 'Best Rated Courses',
-    'best_rates_hint' => '#Enjoy high quality and best rated content',
+    'best_rates' => 'Các khóa học được đánh giá cao nhất',
+    'best_rates_hint' => '#Tận hưởng nội dung chất lượng cao và được đánh giá cao nhất',
 
-    'discount_classes' => 'Discounted Courses',
-    'discount_classes_hint' => '#Get courses at the latest price',
+    'discount_classes' => 'Các khóa học giảm giá',
+    'discount_classes_hint' => '#Nhận các khóa học với giá hấp dẫn nhất',
 
-    'free_classes' => 'Free Courses',
-    'free_classes_hint' => '#Never miss free learning opportunities',
+    'free_classes' => 'Khóa học miễn phí',
+    'free_classes_hint' => '#Không bỏ lỡ cơ hội học miễn phí',
 
-    'testimonials' => 'Testimonials',
-    'testimonials_hint' => '#What our customers say about us',
+    'testimonials' => 'Đánh giá',
+    'testimonials_hint' => '#Những gì khách hàng của chúng tôi nói về chúng tôi',
 
-    'subscribe_now' => 'Subscribe Now!',
-    'subscribe_now_hint' => '#Choose a subscription plan and save money!',
+    'subscribe_now' => 'Đăng ký ngay!',
+    'subscribe_now_hint' => '#Chọn một gói đăng ký và tiết kiệm tiền!',
 
-    'instructors' => 'Instructors',
-    'all_instructors' => 'All Instructors',
-    'instructors_hint' => '#Learn from the experienced & skillful instructors',
-    'reserve_a_live_class' => 'Reserve a live meeting',
+    'instructors' => 'Giáo viên',
+    'all_instructors' => 'Tất cả giáo viên',
+    'instructors_hint' => '#Học từ những giáo viên có kinh nghiệm và tài năng',
+    'reserve_a_live_class' => 'Đặt chỗ cho một buổi học trực tiếp',
 
-    'organization' => 'Organization',
-    'organizations' => 'Organizations',
-    'all_organizations' => 'All Organizations',
-    'organizations_hint' => '#Greatest education organizations are here to help you',
+    'organization' => 'Tổ chức',
+    'organizations' => 'Tổ chức',
+    'all_organizations' => 'Tất cả tổ chức',
+    'organizations_hint' => '#Những tổ chức giáo dục tốt nhất đây để giúp bạn',
 
     'blog' => 'Blog',
-    'all_blog' => 'Blog Posts',
-    'blog_hint' => '#Explore latest news and articles',
+    'all_blog' => 'Bài viết Blog',
+    'blog_hint' => '#Khám phá tin tức và bài viết mới nhất',
 
-    'platform_address' => 'Address',
-    'order_summary' => 'Order Summary',
-  	'blog_search_placeholder' => 'Search for blog posts...',
+    'platform_address' => 'Địa chỉ',
+    'order_summary' => 'Tóm tắt đơn hàng',
+    'blog_search_placeholder' => 'Tìm kiếm bài viết blog...',
 ];
