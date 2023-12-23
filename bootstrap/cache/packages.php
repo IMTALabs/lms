@@ -60,6 +60,17 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'imtalabs/chat' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BasementChat\\Basement\\BasementServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Basement' => 'BasementChat\\Basement\\Facades\\Basement',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
