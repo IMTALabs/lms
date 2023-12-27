@@ -30,6 +30,12 @@ jobs:
         run: npm install
       - name: Generate Key
         run: php artisan key:generate
+        env:
+          DB_HOST: localhost
+          DB_USERNAME: user
+          DB_PASSWORD: secret
+          DB_DATABASE: db_test
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
