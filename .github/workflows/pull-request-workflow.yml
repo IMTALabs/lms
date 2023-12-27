@@ -30,8 +30,20 @@ jobs:
         run: npm install
       - name: Run migrations
         run: php artisan migrate
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: user
+          DB_PASSWORD: secret
+          DB_DATABASE: db_test
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: Run seeders
         run: php artisan db:seed
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: user
+          DB_PASSWORD: secret
+          DB_DATABASE: db_test
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
       - name: Generate Key
         run: php artisan key:generate
         env:
