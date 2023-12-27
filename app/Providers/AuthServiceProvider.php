@@ -39,9 +39,9 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $minutes = 60 * 60; // 1 hour
-        $sections = Schema::hasTable('sections') ? Cache::remember('sections', $minutes, function () {
+        $sections = Cache::remember('sections', $minutes, function () {
             return Section::all();
-        }) : [];
+        });
 
         $scopes = [];
         foreach ($sections as $section) {
