@@ -12,6 +12,7 @@ use App\Policies\WebinarPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Schema;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -23,8 +24,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
         CourseForum::class => CourseForumPolicy::class,
-        CourseForumAnswer::class => CourseForumAnswerPolicy::class ,
-        Webinar::class => WebinarPolicy::class
+        CourseForumAnswer::class => CourseForumAnswerPolicy::class,
+        Webinar::class => WebinarPolicy::class,
     ];
 
     /**
