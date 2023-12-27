@@ -31,7 +31,7 @@ jobs:
       - name: Generate Key
         run: php artisan key:generate
         env:
-          DB_HOST: localhost
+          DB_HOST: 127.0.0.1
           DB_USERNAME: user
           DB_PASSWORD: secret
           DB_DATABASE: db_test
