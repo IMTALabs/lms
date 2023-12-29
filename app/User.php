@@ -30,10 +30,9 @@ use Illuminate\Support\Carbon;
 use BasementChat\Basement\Contracts\User as BasementUserContract;
 use BasementChat\Basement\Traits\HasPrivateMessages;
 
-class User extends Authenticatable implements BasementUserContract
+class User extends Authenticatable
 {
     use Notifiable;
-    use HasPrivateMessages;
 
     static $active = 'active';
     static $pending = 'pending';

@@ -4445,3 +4445,19 @@ Khi người dùng nhấn nút \"Đăng ký\", dữ liệu nhập vào các trư
 #46 /var/www/html/rocket-lms-1.8/Source/Source/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
 #47 {main}
 "} 
+[2023-12-29 08:40:40] local.ERROR: Trait "BasementChat\Basement\Traits\HasPrivateMessages" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"BasementChat\\Basement\\Traits\\HasPrivateMessages\" not found at /var/www/html/rocket-lms-1.8/Source/Source/app/User.php:33)
+[stacktrace]
+#0 {main}
+"} 
+[2023-12-29 08:40:40] local.ERROR: Trait "BasementChat\Basement\Traits\HasPrivateMessages" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"BasementChat\\Basement\\Traits\\HasPrivateMessages\" not found at /var/www/html/rocket-lms-1.8/Source/Source/app/User.php:33)
+[stacktrace]
+#0 {main}
+"} 
+[2023-12-29 08:40:41] local.ERROR: Trait "BasementChat\Basement\Traits\HasPrivateMessages" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"BasementChat\\Basement\\Traits\\HasPrivateMessages\" not found at /var/www/html/rocket-lms-1.8/Source/Source/app/User.php:33)
+[stacktrace]
+#0 {main}
+"} 
+[2023-12-29 08:40:41] local.ERROR: Trait "BasementChat\Basement\Traits\HasPrivateMessages" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"BasementChat\\Basement\\Traits\\HasPrivateMessages\" not found at /var/www/html/rocket-lms-1.8/Source/Source/app/User.php:33)
+[stacktrace]
+#0 {main}
+"} 
