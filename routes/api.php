@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,6 @@ Route::group(['prefix' => '/development'], function () {
 
     Route::prefix('instructor')->middleware(['api.auth', 'api.level-access:teacher'])->namespace('Instructor')->group(base_path('routes/api/instructor.php'));
 
-
-
-
 });
+Route::post('/listening',[AiController::class,'listening']);
+
