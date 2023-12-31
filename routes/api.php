@@ -35,4 +35,7 @@ Route::group(['prefix' => '/development'], function () {
 
 });
 Route::post('/listening',[AiController::class,'listening']);
+Route::get('/route',[AiController::class,'route_landing_page']);
+Route::post('/gen_instruction',[AiController::class,'writing_gen_instruction']);
+Route::post('/evalue',[AiController::class,'evalue']);
 

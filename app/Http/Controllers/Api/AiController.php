@@ -9,6 +9,12 @@ use Exception;
 
 class AiController extends Controller
 {
+    public function route_landing_page()
+    {
+        // các route của landing page
+        $array = ['listening', 'writing', 'reading', 'writing'];
+        return response()->json(['route' => $array]);
+    }
     public function listening()
     {
         $listeningLink = request()->input('listen_link');
@@ -58,6 +64,70 @@ class AiController extends Controller
         }
         return response()->json([
             'error' => 'Không có giá trị từ query parameter \'listen_link\'',
+        ]);
+    }
+    public function writing_gen_instruction()
+    {
+        $user_id = "1";
+        $topic = \request()->input('topic');
+        try {
+            $client = new Client();
+            $response = $client->post('http://34.16.32.114:8300/gen_instruction', [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'id' => $user_id,
+                    'topic' => $topic,
+                ],
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            $body = json_decode($response->getBody(), true);
+        } catch (Exception $e) {
+            $statusCode = $e->getCode();
+            $body = json_decode($e->getResponse()->getBody(), true);
+            return response()->json([
+                'statusCode' => $statusCode,
+                'body' => $body
+            ]);
+        }
+        return response()->json([
+            'data' => $body,
+        ]);
+    }
+    public function evalue()
+    {
+        $user_id = "1";
+        $instruction=\request()->input('instruction');
+        $submission = \request()->input('submission');
+        try {
+            $client = new Client();
+            $response = $client->post('http://34.16.32.114:8300/evaluate', [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'id' => $user_id,
+                    'submission' => $submission,
+                    'instruction'=>$instruction
+                ],
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            $body = json_decode($response->getBody(), true);
+        } catch (Exception $e) {
+            $statusCode = $e->getCode();
+            $body = json_decode($e->getResponse()->getBody(), true);
+            return response()->json([
+                'statusCode' => $statusCode,
+                'body' => $body
+            ]);
+        }
+        return response()->json([
+            'data' => $body,
         ]);
     }
 }
