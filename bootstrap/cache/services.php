@@ -30,22 +30,22 @@
     26 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
     27 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     28 => 'Fruitcake\\Cors\\CorsServiceProvider',
-    29 => 'Intervention\\Image\\ImageServiceProvider',
-    30 => 'JoisarJignesh\\Bigbluebutton\\BigbluebuttonServiceProvider',
-    31 => 'Jorenvh\\Share\\Providers\\ShareServiceProvider',
-    32 => 'Jubaer\\Zoom\\ZoomServiceProvider',
-    33 => 'Laravel\\Sail\\SailServiceProvider',
-    34 => 'Laravel\\Sanctum\\SanctumServiceProvider',
-    35 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    36 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    37 => 'Laravel\\Ui\\UiServiceProvider',
-    38 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    39 => 'Mews\\Captcha\\CaptchaServiceProvider',
-    40 => 'Mews\\Purifier\\PurifierServiceProvider',
-    41 => 'Carbon\\Laravel\\ServiceProvider',
-    42 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    43 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    44 => 'OpenAI\\Laravel\\ServiceProvider',
+    29 => 'OpenAI\\Laravel\\ServiceProvider',
+    30 => 'Intervention\\Image\\ImageServiceProvider',
+    31 => 'JoisarJignesh\\Bigbluebutton\\BigbluebuttonServiceProvider',
+    32 => 'Jorenvh\\Share\\Providers\\ShareServiceProvider',
+    33 => 'Jubaer\\Zoom\\ZoomServiceProvider',
+    34 => 'Laravel\\Sail\\SailServiceProvider',
+    35 => 'Laravel\\Sanctum\\SanctumServiceProvider',
+    36 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    37 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    38 => 'Laravel\\Ui\\UiServiceProvider',
+    39 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    40 => 'Mews\\Captcha\\CaptchaServiceProvider',
+    41 => 'Mews\\Purifier\\PurifierServiceProvider',
+    42 => 'Carbon\\Laravel\\ServiceProvider',
+    43 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    44 => 'Termwind\\Laravel\\TermwindServiceProvider',
     45 => 'SebaCarrasco93\\LaravelPayku\\LaravelPaykuServiceProvider',
     46 => 'SebaCarrasco93\\LaravelPayku\\RouteServiceProvider',
     47 => 'Shetabit\\Payment\\Provider\\PaymentServiceProvider',
@@ -260,13 +260,13 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'OpenAI\\Client' => 'OpenAI\\Laravel\\ServiceProvider',
+    'OpenAI\\Contracts\\ClientContract' => 'OpenAI\\Laravel\\ServiceProvider',
+    'openai' => 'OpenAI\\Laravel\\ServiceProvider',
     'Laravel\\Sail\\Console\\InstallCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'Laravel\\Sail\\Console\\PublishCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
-    'OpenAI\\Client' => 'OpenAI\\Laravel\\ServiceProvider',
-    'OpenAI\\Contracts\\ClientContract' => 'OpenAI\\Laravel\\ServiceProvider',
-    'openai' => 'OpenAI\\Laravel\\ServiceProvider',
   ),
   'when' => 
   array (
@@ -306,6 +306,9 @@
     'Illuminate\\Validation\\ValidationServiceProvider' => 
     array (
     ),
+    'OpenAI\\Laravel\\ServiceProvider' => 
+    array (
+    ),
     'Laravel\\Sail\\SailServiceProvider' => 
     array (
     ),
@@ -313,9 +316,6 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
-    array (
-    ),
-    'OpenAI\\Laravel\\ServiceProvider' => 
     array (
     ),
   ),

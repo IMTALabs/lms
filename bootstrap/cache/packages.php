@@ -60,6 +60,13 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'imtalabs/chatbot-streaming-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'OpenAI\\Laravel\\ServiceProvider',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
@@ -195,13 +202,6 @@
     'providers' => 
     array (
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    ),
-  ),
-  'openai-php/laravel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'OpenAI\\Laravel\\ServiceProvider',
     ),
   ),
   'sebacarrasco93/laravel-payku' => 

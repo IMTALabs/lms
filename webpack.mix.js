@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix
+mix.js('resources/js/chat/chatbox.js', 'public/assets/default/js/chatbox.min.js')
 // .js('resources/js/app.js', 'public/assets/default/js')
 //
 // scss
