@@ -1,14 +1,10 @@
-import markdownIt from "markdown-it";
-import Shikiji from "markdown-it-shikiji";
+import { fetchEventSource } from "@microsoft/fetch-event-source";
+import MarkdownIt from "markdown-it";
+import hljs from "highlight.js";
+import "highlight.js/styles/panda-syntax-dark.css";
 
 (async function () {
-    const md = markdownIt();
-    md.use(await Shikiji({
-        themes: {
-            light: "material-theme-darker",
-            dark: "material-theme-darker"
-        }
-    }));
+    const md = MarkdownIt();
 
     // Inject the CSS
     const style = document.createElement("style");
@@ -54,7 +50,6 @@ import Shikiji from "markdown-it-shikiji";
             margin: 10px 0;
         }
         .imta-reply pre {
-            padding: 10px;
             border-radius: 10px;
             font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
@@ -126,7 +121,7 @@ import Shikiji from "markdown-it-shikiji";
     const chatPopup = document.getElementById("chat-popup");
     const closePopup = document.getElementById("close-popup");
 
-    chatSubmit.addEventListener("click", function () {
+    chatSubmit.addEventListener("click", async function () {
 
         const message = chatInput.value.trim();
         if (!message) return;
@@ -135,7 +130,7 @@ import Shikiji from "markdown-it-shikiji";
 
         chatInput.value = "";
 
-        onUserRequest(message);
+        await onUserRequest(message);
 
     });
 
@@ -161,7 +156,7 @@ import Shikiji from "markdown-it-shikiji";
         }
     }
 
-    function onUserRequest(message) {
+    async function onUserRequest(message) {
         // Handle user request here
         console.log("User request:", message);
 
@@ -179,17 +174,18 @@ import Shikiji from "markdown-it-shikiji";
         chatInput.value = "";
 
         // Reply to the user
-        setTimeout(function () {
-            reply(message);
+        setTimeout(async function () {
             document.getElementById("chat-input").toggleAttribute("disabled", true);
             document.getElementById("chat-submit").toggleAttribute("disabled", true);
+            await reply(message);
         }, 100);
     }
 
-    function reply(message) {
+    async function reply(message) {
         const chatMessages = document.getElementById("chat-messages");
         const replyElement = document.createElement("div");
         const id = `chat-reply-${ Math.random().toString(36).substr(2, 9) }`;
+        let raw = "";
         replyElement.className = "imta-flex imta-mb-3";
         replyElement.innerHTML = `
             <div class="imta-reply imta-bg-gray-200 imta-text-black imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]"
@@ -202,30 +198,36 @@ import Shikiji from "markdown-it-shikiji";
         chatMessages.appendChild(replyElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        const source = new EventSource(
-            `${ appUrl }api/chatbot/chat?user_id=${ authId }&session_id=1&mode=course&query=${ message }`
-        );
-
-        source.onerror = (e) => {
-            source.close();
-            document.getElementById(id).innerHTML = `Đã có lỗi xảy ra. Vui lòng thử lại sau.`;
-            document.getElementById("chat-input").toggleAttribute("disabled", false);
-            document.getElementById("chat-input").focus();
-            document.getElementById("chat-submit").toggleAttribute("disabled", false);
-        };
-
-        let raw = "";
-        source.onmessage = (event) => {
-            if (event.data.trim() === "<END_STREAM_SSE>") {
-                source.close();
+        await fetchEventSource(`${ appUrl }api/chatbot/chat`, {
+            method: "POST",
+            headers: {
+                "x-api-key": "IMTATEST",
+                "x-csrf-token": document.querySelector("meta[name='csrf-token']").getAttribute("content"),
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                query: message,
+            }),
+            onerror() {
+                document.getElementById(id).innerHTML = `Đã có lỗi xảy ra. Vui lòng thử lại sau.`;
                 document.getElementById("chat-input").toggleAttribute("disabled", false);
                 document.getElementById("chat-input").focus();
                 document.getElementById("chat-submit").toggleAttribute("disabled", false);
-                return;
+            },
+            onmessage(event) {
+                if (event.data.trim() === "<END_STREAM_SSE>") {
+                    document.getElementById("chat-input").toggleAttribute("disabled", false);
+                    document.getElementById("chat-input").focus();
+                    document.getElementById("chat-submit").toggleAttribute("disabled", false);
+                    return;
+                }
+                raw += `${ event.data.replace(/\{.*?\}/, "") }`;
+                document.getElementById(id).innerHTML = md.render(raw);
+                document.getElementById(id).querySelectorAll("pre code").forEach((el) => {
+                    hljs.highlightElement(el);
+                });
+                chatMessages.scrollTop = chatMessages.scrollHeight;
             }
-            raw += `${ event.data.replace(/\{.*?\}/, "") }`;
-            document.getElementById(id).innerHTML = md.render(raw);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        };
+        });
     }
 })();

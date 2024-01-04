@@ -35,7 +35,7 @@ Route::group(['prefix' => '/development'], function () {
 
 // Chatbot
 Route::group(['prefix' => '/chatbot'], function () {
-    Route::get('/chat', ['uses' => 'ChatbotController@chat'])
+    Route::post('/chat', ['uses' => 'ChatbotController@chat'])
         ->middleware('throttle:chat')
         ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
 });

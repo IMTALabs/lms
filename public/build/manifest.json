@@ -1,0 +1,14 @@
+{
+  "resources/js/chat/chatbox.css": {
+    "file": "assets/chatbox-2044ecb1.css",
+    "src": "resources/js/chat/chatbox.css"
+  },
+  "resources/js/chat/chatbox.js": {
+    "css": [
+      "assets/chatbox-2044ecb1.css"
+    ],
+    "file": "assets/chatbox-779d8e92.js",
+    "isEntry": true,
+    "src": "resources/js/chat/chatbox.js"
+  }
+}

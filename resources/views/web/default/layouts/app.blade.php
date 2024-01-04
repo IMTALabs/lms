@@ -84,7 +84,7 @@
             var authId = "{{ Auth::id() }}";
             var appUrl = "{{ config('app.url') }}";
         </script>
-        <script src="{{ mix('assets/default/js/chatbox.min.js') }}"></script>
+        @vite(['resources/js/chat/chatbox.js'])
     @endif
 
     @if(empty($justMobileApp) and checkShowCookieSecurityDialog())

@@ -29,10 +29,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use BasementChat\Basement\Contracts\User as BasementUserContract;
 use BasementChat\Basement\Traits\HasPrivateMessages;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
     static $active = 'active';
     static $pending = 'pending';

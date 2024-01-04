@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -11,20 +12,24 @@ class ChatbotController extends Controller
 {
     public function chat(Request $request)
     {
+        if (!Auth::check()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         try {
-            $question = $request->query('query');
+            $question = $request->get('query');
+            Log::debug($question);
             return response()->stream(function () use ($question) {
+                $start = microtime(true);
                 $stream = OpenAI::completions()->createStreamed([
-                    'user_id' => "1",
-                    'session_id' => "1",
+                    'user_id' => Auth::id(),
+                    'session_id' => Auth::id(),
                     'mode' => "course",
                     'query' => $question,
                 ]);
 
                 foreach ($stream as $response) {
                     $text = $response->choices[0]->text;
-                    // $text = str_replace("\r", "\n", $text);
-                    \Log::info($text);
                     if (connection_aborted()) {
                         break;
                     }
@@ -49,6 +54,12 @@ class ChatbotController extends Controller
                 echo "\n\n";
                 ob_flush();
                 flush();
+
+                Log::channel('chat_request')->info('✅ Success', [
+                    'user' => \Auth::id(),
+                    'question' => $question,
+                    'time' => microtime(true) - $start,
+                ]);
             }, 200, [
                 'Cache-Control' => 'no-cache',
                 'X-Accel-Buffering' => 'no',
