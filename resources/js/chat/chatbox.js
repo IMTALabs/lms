@@ -221,6 +221,7 @@ import "highlight.js/styles/panda-syntax-dark.css";
                     document.getElementById("chat-submit").toggleAttribute("disabled", false);
                     return;
                 }
+                event.data = event.data === "" ? "\n" : event.data;
                 raw += `${ event.data.replace(/\{.*?\}/, "") }`;
                 document.getElementById(id).innerHTML = md.render(raw);
                 document.getElementById(id).querySelectorAll("pre code").forEach((el) => {

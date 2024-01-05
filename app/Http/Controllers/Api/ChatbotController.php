@@ -18,7 +18,6 @@ class ChatbotController extends Controller
 
         try {
             $question = $request->get('query');
-            Log::debug($question);
             return response()->stream(function () use ($question) {
                 $start = microtime(true);
                 $stream = OpenAI::completions()->createStreamed([
@@ -34,21 +33,14 @@ class ChatbotController extends Controller
                         break;
                     }
 
-                    echo "event: message\n";
-                    if (is_array($text)) {
-                        foreach ($text as $line) {
-                            echo 'data: ' . $line;
-                            echo "\n";
-                        }
-                    } else {
-                        echo 'data: ' . $text;
-                    }
+                    echo $text;
                     echo "\n\n";
                     ob_flush();
                     flush();
                 }
 
                 // Manual close
+                echo "id: 1\n";
                 echo "event: message\n";
                 echo 'data: <END_STREAM_SSE>';
                 echo "\n\n";
@@ -67,6 +59,7 @@ class ChatbotController extends Controller
             ]);
         } catch (\Throwable $th) {
             Log::error($th->getMessage(), $th->getTrace());
+            abort(404, 'Something went wrong.');
         }
     }
 }
