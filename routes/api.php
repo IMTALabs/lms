@@ -34,8 +34,23 @@ Route::group(['prefix' => '/development'], function () {
     Route::prefix('instructor')->middleware(['api.auth', 'api.level-access:teacher'])->namespace('Instructor')->group(base_path('routes/api/instructor.php'));
 
 });
+// Route::post('/login', 'AiController@login');
+Route::post('/login', [AiController::class, 'login']);
+
+// Route for logout
+Route::post('/logout', [AiController::class, 'logout'])->middleware('auth:sanctum');
+
+// Route for user registration
+// Route::post('/register', [AiController::class, 'register']);
+//group check login
+Route::middleware(['auth:sanctum'])->group(function () {
+// ----------------------------------------------------------------
 Route::post('/listening',[AiController::class,'listening']);
 Route::get('/route',[AiController::class,'route_landing_page']);
 Route::post('/gen_instruction',[AiController::class,'writing_gen_instruction']);
 Route::post('/evalue',[AiController::class,'evalue']);
+Route::post('/reading',[AiController::class,'reading']);
+});
+
+
 
