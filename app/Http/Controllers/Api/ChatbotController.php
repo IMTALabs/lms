@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -19,7 +20,6 @@ class ChatbotController extends Controller
         try {
             $question = $request->get('query');
             return response()->stream(function () use ($question) {
-                $start = microtime(true);
                 $stream = OpenAI::completions()->createStreamed([
                     'user_id' => Auth::id(),
                     'session_id' => Auth::id(),
@@ -61,6 +61,36 @@ class ChatbotController extends Controller
                 'Cache-Control' => 'no-cache',
                 'X-Accel-Buffering' => 'no',
                 'Content-Type' => 'text/event-stream',
+            ]);
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage(), $th->getTrace());
+            abort(404, 'Something went wrong.');
+        }
+    }
+
+    public function new()
+    {
+        if (!Auth::check()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        try {
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ])
+                ->withBody(json_encode([
+                    'user_id' => (string) Auth::id(),
+                    'session_id' => (string) Auth::id(),
+                ]), 'application/json')
+                ->post('http://34.16.32.114:9000/clear');
+
+            if ($response->failed()) {
+                abort(500, 'Something went wrong.');
+            }
+
+            return response()->json([
+                'message' => 'success',
             ]);
         } catch (\Throwable $th) {
             Log::error($th->getMessage(), $th->getTrace());

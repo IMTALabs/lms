@@ -38,4 +38,8 @@ Route::group(['prefix' => '/chatbot'], function () {
     Route::post('/chat', ['uses' => 'ChatbotController@chat'])
         ->middleware('throttle:chat')
         ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
+
+    Route::post('/new', ['uses' => 'ChatbotController@new'])
+        ->middleware('throttle:chat')
+        ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
 });
