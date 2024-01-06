@@ -27,7 +27,12 @@ class ChatbotController extends Controller
                     'query' => $question,
                 ]);
 
+                $start = microtime(true);
                 foreach ($stream as $response) {
+                    if (microtime(true) - $start > 60) {
+                        break;
+                    }
+
                     $text = $response->choices[0]->text;
                     if (connection_aborted()) {
                         break;

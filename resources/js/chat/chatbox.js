@@ -215,6 +215,7 @@ import "highlight.js/styles/panda-syntax-dark.css";
                 document.getElementById("chat-submit").toggleAttribute("disabled", false);
             },
             onmessage(event) {
+                console.log(event.data.trim());
                 if (event.data.trim() === "<END_STREAM_SSE>") {
                     document.getElementById("chat-input").toggleAttribute("disabled", false);
                     document.getElementById("chat-input").focus();
