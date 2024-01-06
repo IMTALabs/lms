@@ -867,7 +867,7 @@ function currencySign($currency = null)
             break;
         case 'SGD':
             return '$';
-            break;    
+            break;
         case 'CHF':
             return 'CHF';
             break;
@@ -906,10 +906,10 @@ function currencySign($currency = null)
             break;
         case 'KWD':
             return 'KD';
-            break; 
+            break;
         case 'EGP':
             return 'ج.م';
-            break;                       
+            break;
         default:
             return '$';
     }
@@ -1628,7 +1628,6 @@ function getThemeFontsSettings()
                       src: url({$settings[$type]['medium']}) format('woff2');
                     }";
             }
-
         }
     }
 
@@ -1689,7 +1688,7 @@ function getDefaultLocale()
 
 function deepClone($object)
 {
-    $cloned = clone($object);
+    $cloned = clone ($object);
     foreach ($cloned as $key => $val) {
         if (is_object($val) || (is_array($val))) {
             $cloned->{$key} = unserialize(serialize($val));
@@ -1947,7 +1946,8 @@ function getTranslateAttributeValue($model, $key, $loca = null)
 
     $isEditModel = ($isAdminUrl and !empty($contentLocale) and is_array($contentLocale) and $contentLocale['table'] == $model->getTable() and $contentLocale['item_id'] == $model->id);
 
-    if ($isAdminUrl and
+    if (
+        $isAdminUrl and
         !empty($contentLocale) and
         is_array($contentLocale) and
         (
