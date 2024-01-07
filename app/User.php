@@ -27,10 +27,13 @@ use App\Models\Webinar;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use BasementChat\Basement\Contracts\User as BasementUserContract;
+use BasementChat\Basement\Traits\HasPrivateMessages;
 
-class User extends Authenticatable
+class User extends Authenticatable implements BasementUserContract
 {
     use Notifiable;
+    use HasPrivateMessages;
 
     static $active = 'active';
     static $pending = 'pending';
@@ -1011,5 +1014,13 @@ class User extends Authenticatable
         }
 
         return $access;
+    }
+
+    /**
+     * Get the user's name
+     */
+    public function getNameAttribute(): string
+    {
+        return $this->attributes['full_name'] ?? 'No name';
     }
 }

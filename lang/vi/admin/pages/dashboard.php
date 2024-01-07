@@ -8,6 +8,6 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'dashboard' => 'Dashboard',
-    'admin_dashboard_show' => 'Dashboard Show',
+    'dashboard' => 'Bảng điều khiển',
+    'admin_dashboard_show' => 'Hiển thị bảng điều khiển chính',
 ];

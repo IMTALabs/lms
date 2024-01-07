@@ -4,13 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Footer
+    | Chân trang
     |--------------------------------------------------------------------------
     */
 
-    'join' => 'Join',
-    'join_us_today' => 'Join us today',
-    'subscribe_content' => '#We will send the best deals and offers to your email.',
-    'enter_email_here' => 'Enter your email here',
+    'join' => 'Tham gia',
+    'join_us_today' => 'Tham gia cùng chúng tôi ngày hôm nay',
+    'subscribe_content' => '#Chúng tôi sẽ gửi những ưu đãi tốt nhất đến email của bạn.',
+    'enter_email_here' => 'Nhập địa chỉ email của bạn vào đây',
 
 ];

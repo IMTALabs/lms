@@ -4,21 +4,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Navbar
+    | Thanh điều hướng
     |--------------------------------------------------------------------------
     */
 
-    'search_anything' => 'Search...',
-    'home' => 'Home',
-    'about_us' => 'About us',
-    'contact' => 'Contact',
+    'search_anything' => 'Tìm kiếm...',
+    'home' => 'Trang chủ',
+    'about_us' => 'Về chúng tôi',
+    'contact' => 'Liên hệ',
     'blog' => 'Blog',
-    'terms' => 'Terms',
-    'items' => 'Items',
+    'terms' => 'Điều khoản',
+    'items' => 'Mục',
     'menu' => 'Menu',
-    'title' => 'Title',
-    'start_a_live_class' => 'Start a new course',
-
-
+    'title' => 'Tiêu đề',
+    'start_a_live_class' => 'Bắt đầu khóa học mới',
 
 ];
