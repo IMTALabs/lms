@@ -8,9 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'categories' => 'Categories',
-    'edit_page_title' => 'Edit',
-
-
+    'categories' => 'Danh mục',
+    'edit_page_title' => 'Chỉnh sửa',
 
 ];
