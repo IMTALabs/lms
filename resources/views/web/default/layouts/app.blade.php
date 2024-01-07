@@ -38,7 +38,7 @@
     @endif
 </head>
 
-<body class="@if($isRtl) rtl @endif">
+<body class="@if($isRtl) rtl @endif" style="background-image: url('/assets/default/img/UpDownRemoveAllFinal.png')">
 
 <div id="app" class="{{ (!empty($floatingBar) and $floatingBar->position == 'top' and $floatingBar->fixed) ? 'has-fixed-top-floating-bar' : '' }}">
     @if(!empty($floatingBar) and $floatingBar->position == 'top')
