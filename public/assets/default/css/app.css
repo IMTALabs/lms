@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /*$custom-control-indicator-checked-color: $primary;
 $custom-control-indicator-checked-border-color: $gray-300;
 $custom-control-indicator-checked-bg: #ffffff;
@@ -259,7 +260,8 @@ $custom-control-indicator-bg:$primary;*/
   --secondary-btn-shadow-hover: 0 3px 8px 0 rgb(64 213 125 / 30%);
   --secondary-btn-color: #ffffff;
   --secondary-btn-color-hover: #ffffff;
-  --font-family-base: "main-font-family";
+  /* --font-family-base: "main-font-family"; */
+  --font-family-base: "Montserrat";
   --font-family-rtl: "rtl-font-family";
 }
 
@@ -15035,7 +15037,6 @@ p {
 }
 @media (min-width: 991px) {
   .menu-category > ul > li {
-    background-color: #f1f1f1;
     padding: 12px 25px 12px 15px;
   }
 }

@@ -27,14 +27,12 @@ use App\Models\Webinar;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
-use BasementChat\Basement\Contracts\User as BasementUserContract;
-use BasementChat\Basement\Traits\HasPrivateMessages;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-    use HasApiTokens;
+    use Notifiable,HasApiTokens,HasFactory;
 
     static $active = 'active';
     static $pending = 'pending';

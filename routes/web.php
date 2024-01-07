@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AiListeningController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -390,4 +391,9 @@ Route::group(['namespace' => 'Web', 'middleware' => ['check_mobile_app', 'impers
     Route::post('/forms/{url}/store', 'FormsController@store');
 
 });
+Route::get('/ai_test', 'Web\AiListeningController@index');
+Route::get('/lab_listening', 'Web\AiListeningController@lab');
+Route::get('/lab_reading', 'Web\AiListeningController@reading');
+Route::get('/lab_writing', 'Web\AiListeningController@writing');
+Route::get('/lab_speaking', 'Web\AiListeningController@speaking');
 
