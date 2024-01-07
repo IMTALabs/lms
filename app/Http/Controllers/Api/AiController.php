@@ -35,18 +35,14 @@ class AiController extends Controller
 
             ], 422);
         } else {
-            preg_match('/\?v=(.*)/', $listeningLink, $matches);
-            $youtubeId = $matches[1];
-            $embedCode = '
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/' . $youtubeId . '" title="How to convert Figma Design into Flutter Code | DhiWise.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          ';
+            
             try {
 
                 $response = Http::withHeaders([
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                 ])->timeout(60)->post('http://34.16.32.114:8150/gen_quizz', [
-                    'id' => $user_id,
+                    'id' =>(string) $user_id,
                     'url' => $listeningLink,
                     'num_quizz' => 2,
                 ]);
@@ -103,7 +99,7 @@ class AiController extends Controller
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                 ])->timeout(60)->post('http://34.16.32.114:8300/gen_instruction', [
-                    'id' => $user_id,
+                    'id' => (string) $user_id,
                     'topic' => $topic,
                 ]);
 
@@ -155,7 +151,7 @@ class AiController extends Controller
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                 ])->timeout(60)->post('http://34.16.32.114:8300/evaluate', [
-                    'id' => $user_id,
+                    'id' =>(string) $user_id,
                     'submission' => $submission,
                     'instruction' => $instruction
                 ]);
@@ -216,7 +212,7 @@ class AiController extends Controller
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                 ])->timeout(60)->post('http://34.16.32.114:8200/gen_quizz', [
-                    'id' => $user_id,
+                    'id' => (string) $user_id,
                     "mode" => $mode,
                     "topic" => $topic,
                     "paragraph" => $paragraph,
