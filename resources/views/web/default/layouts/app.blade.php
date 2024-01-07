@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="/assets/default/vendors/toast/jquery.toast.min.css">
     <link rel="stylesheet" href="/assets/default/vendors/simplebar/simplebar.css">
     <link rel="stylesheet" href="/assets/default/css/app.css">
-    <link rel="stylesheet" href="/vendor/basement/basement.bundle.min.css">
 
     @if($isRtl)
         <link rel="stylesheet" href="/assets/default/css/rtl-app.css">
@@ -39,7 +38,7 @@
     @endif
 </head>
 
-<body class="@if($isRtl) rtl @endif" style="background-image: url('/assets/default/img/UpDownRemoveAllFinal.png')">
+<body class="@if($isRtl) rtl @endif">
 
     <div id="app"
          class="{{ (!empty($floatingBar) and $floatingBar->position == 'top' and $floatingBar->fixed) ? 'has-fixed-top-floating-bar' : '' }}">
@@ -67,10 +66,6 @@
         @if(!empty($floatingBar) and $floatingBar->position == 'bottom')
             @include('web.default.includes.floating_bar')
         @endif
-
-        @if(Auth::check())
-            <x-basement::chat-box/>
-        @endif
     </div>
     <!-- Template JS File -->
     <script src="/assets/default/js/app.js"></script>
@@ -79,7 +74,18 @@
     <script src="/assets/default/vendors/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="/assets/default/vendors/toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="/assets/default/vendors/simplebar/simplebar.min.js"></script>
-    <script type="text/javascript" src="/vendor/basement/basement.bundle.min.js"></script>
+    @if(Auth::check())
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                prefix: "imta-"
+            };
+
+            var authId = "{{ Auth::id() }}";
+            var appUrl = "{{ config('app.url') }}";
+        </script>
+        @vite(['resources/js/chat/chatbox.js'])
+    @endif
 
     @if(empty($justMobileApp) and checkShowCookieSecurityDialog())
         @include('web.default.includes.cookie-security')

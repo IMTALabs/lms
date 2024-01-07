@@ -40,6 +40,10 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         parent::boot();
+
+        RateLimiter::for('chat', function (Request $request) {
+            return Limit::perMinute(10)->by($request->user()?->id ?: $request->ip());
+        });
     }
 
     /**

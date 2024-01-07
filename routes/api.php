@@ -20,7 +20,7 @@ Route::group(['prefix' => '/development'], function () {
         return 'api test';
     });
 
-    Route::middleware('api') ->group(base_path('routes/api/auth.php'));
+    Route::middleware('api')->group(base_path('routes/api/auth.php'));
 
     Route::namespace('Web')->group(base_path('routes/api/guest.php'));
 
@@ -31,8 +31,15 @@ Route::group(['prefix' => '/development'], function () {
     });
 
     Route::prefix('instructor')->middleware(['api.auth', 'api.level-access:teacher'])->namespace('Instructor')->group(base_path('routes/api/instructor.php'));
+});
 
+// Chatbot
+Route::group(['prefix' => '/chatbot'], function () {
+    Route::post('/chat', ['uses' => 'ChatbotController@chat'])
+        ->middleware('throttle:chat')
+        ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
 
-
-
+    Route::post('/new', ['uses' => 'ChatbotController@new'])
+        ->middleware('throttle:chat')
+        ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
 });
