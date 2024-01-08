@@ -45,22 +45,24 @@ Route::group(['prefix' => '/chatbot'], function () {
         ->withoutMiddleware(\App\Http\Middleware\Api\CheckApiKey::class);
 
 });
-// Route::post('/login', 'AiController@login');
-Route::post('/login', [AiController::class, 'login']);
+// Route for Login
+Route::post('/login', 'AuthController@login');
+
+//Route for Register
+Route::post('/register', 'AuthController@register');
 
 // Route for logout
-Route::post('/logout', [AiController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('/logout', 'AuthController@logout')->middleware('auth:sanctum');
 
-// Route for user registration
-// Route::post('/register', [AiController::class, 'register']);
-//group check login
-Route::middleware(['auth:sanctum'])->group(function () {
+//Group route check login
+//Route::middleware(['auth:sanctum'])->prefix('/english/v1')->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function () {
 // ----------------------------------------------------------------
-Route::post('/listening',[AiController::class,'listening']);
-Route::get('/route',[AiController::class,'route_landing_page']);
-Route::post('/gen_instruction',[AiController::class,'writing_gen_instruction']);
-Route::post('/evalue',[AiController::class,'evalue']);
-Route::post('/reading',[AiController::class,'reading']);
+    Route::post('/listening','English\ListeningController@listening');
+    Route::get('/route','AiController@route_landing_page');
+    Route::post('/gen_instruction','English\WritingController@writing_gen_instruction');
+    Route::post('/evalue','English\WritingController@evalue');
+    Route::post('/reading','English\ReadingController@reading');
 });
 
 
