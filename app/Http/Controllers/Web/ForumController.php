@@ -21,14 +21,14 @@ use Illuminate\Support\Facades\Validator;
 
 class ForumController extends Controller
 {
-    public function __construct()
-    {
-        $forumsStatus = getFeaturesSettings('forums_status');
+    // public function __construct()
+    // {
+    //     $forumsStatus = getFeaturesSettings('forums_status');
 
-        if (empty($forumsStatus) or $forumsStatus == '0') {
-            abort(403);
-        }
-    }
+    //     if (empty($forumsStatus) or $forumsStatus == '0') {
+    //         abort(403);
+    //     }
+    // }
 
     public function index()
     {
